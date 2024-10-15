@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<openbox>
+    <global>
+        <focus>
+            <!-- Focus new window when they appear -->
+            <focusNew>yes</focusNew>
+            <!-- Move focus to a window when you move the mouse into it -->
+            <followMouse>no</followMouse>
+            <!-- Focus the last used window when changing desktops -->
+            <focusLast>no</focusLast>
+            <!-- Move focus under the mouse, even when the mouse is not moving -->
+            <underMouse>no</underMouse>
+        </focus>
+
+        <placement>
+            <smart>yes</smart>
+        </placement>
+
+        <window_decorations>
+            <decorations>yes</decorations>
+        </window_decorations>
+
+        <theme>
+            <name>Adwaita</name>
+            <path>/usr/share/themes</path>
+        </theme>
+    </global>
+
+    <!-- Keyboard Bindings -->
+    <keyboard>
+        <keybind key="W-F4">
+            <action name="Close" />
+        </keybind>
+
+        <keybind key="W-Tab">
+            <action name="NextWindow" />
+        </keybind>
+
+        <keybind key="W-Shift-Tab">
+            <action name="PrevWindow" />
+        </keybind>
+
+        <keybind key="W-Return">
+            <action name="Exec">
+                <command>xterm</command>
+            </action>
+        </keybind>
+
+        <keybind key="W-d">
+            <action name="Exec">
+                <command>rofi -show run</command>
+            </action>
+        </keybind>
+    </keyboard>
+
+    <!-- Mouse Settings -->
+    <mouse>
+        <move_resize>
+            <resize_with_key>yes</resize_with_key>
+        </move_resize>
+
+        <focus_model>
+            <window>click</window>
+        </focus_model>
+
+        <double_click_time>400</double_click_time>
+    </mouse>
+
+    <!-- Window Behavior -->
+    <windows>
+        <titlebars>
+            <double_click>toggle_maximize</double_click>
+            <focus>yes</focus>
+        </titlebars>
+
+        <border>
+            <width>2</width>
+        </border>
+
+        <placement>
+            <manual>no</manual>
+            <center>yes</center>
+        </placement>
+
+        <use_compositing>no</use_compositing>
+    </windows>
+
+    <!-- Edge Actions -->
+    <edge_actions>
+        <action edge="top">
+            <action name="Shade"/>
+        </action>
+
+        <action edge="bottom">
+            <action name="Lower"/>
+        </action>
+
+        <action edge="left">
+            <action name="Move"/>
+        </action>
+
+        <action edge="right">
+            <action name="Resize"/>
+        </action>
+    </edge_actions>
+
+    <!-- Autostart Applications -->
+    <autostart>
+        <application name="nm-applet">
+            <exec>nm-applet</exec>
+        </application>
+
+        <application name="xfce4-power-manager">
+            <exec>xfce4-power-manager</exec>
+        </application>
+    </autostart>
+
+</openbox>
