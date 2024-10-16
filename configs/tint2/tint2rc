@@ -1,0 +1,78 @@
+#------------------------------
+# TINT2RC file
+# @doc here: https://gitlab.com/o9000/tint2/blob/master/doc/tint2.md
+#------------------------------
+
+#---------------------------------------------
+# BACKGROUNDS
+#---------------------------------------------
+# Background #1
+rounded = 0
+border_width = 0
+border_sides =
+background_color = #000000 20
+border_color = #000000 20
+background_color_hover = #BBBBBB 60
+border_color_hover = #BBBBBB 60
+background_color_pressed = #EEEEEE 60
+border_color_pressed = #EEEEEE 60
+border_content_tint_weight = 80
+background_content_tint_weight = 80
+
+#---------------------------------------------
+# PANEL
+#---------------------------------------------
+panel_items = L:T:S:C
+panel_monitor = all
+panel_position = center left vertical
+panel_size = 100% 65
+panel_margin = 0 0
+panel_padding = 0 0 0
+panel_dock = 0
+panel_background_id = 1
+wm_menu = 1
+
+
+#-------------------------------------
+# Taskbar
+taskbar_mode = single_desktop
+taskbar_hide_if_empty = 0
+taskbar_padding = 0 0 0
+taskbar_background_id = 0
+taskbar_active_background_id = 1
+taskbar_name = 1
+taskbar_hide_inactive_tasks = 0
+taskbar_hide_different_monitor = 0
+taskbar_hide_different_desktop = 0
+taskbar_always_show_all_desktop_tasks = 0
+taskbar_name_padding = 0 0
+taskbar_name_background_id = 0
+taskbar_name_active_background_id = 0
+taskbar_name_font_color = #e3e3e3 100
+taskbar_name_active_font_color = #ffffff 100
+taskbar_distribute_size = 0
+taskbar_sort_order = none
+task_align = left
+
+#-------------------------------------
+# Task
+#-------------------------------------
+task_text = 0
+task_icon = 1
+task_centered = 1
+urgent_nb_of_blink = 100000
+task_maximum_size = 150 45
+task_padding = 4 4 8
+task_tooltip = 1
+task_thumbnail = 0
+task_thumbnail_size = 210
+task_font_color = #ffffff 0
+task_background_id = 1
+task_active_background_id = 3
+task_urgent_background_id = 4
+task_iconified_background_id = 2
+mouse_left = toggle_iconify
+mouse_middle = none
+mouse_right = close
+mouse_scroll_up = toggle
+mouse_scroll_down = iconify

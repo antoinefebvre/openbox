@@ -27,8 +27,8 @@ fi
 # ---------------- #
 # Install packages #
 # ---------------- #
-PKGS_CLI_TOOLS="zip unzip xarchiver jq htop"
-PKGS_GUI_TOOLS="tint2 rofi"
+PKGS_CLI_TOOLS="zip unzip xarchiver jq htop feh"
+PKGS_GUI_TOOLS="tint2 rofi kitty"
 PKGS_NETWORK="network-manager network-manager-gnome"
 PKGS_OPENBOX="lightdm openbox obconf picom python3-xdg"
 PKGS_XORG="xinit xfonts-base xserver-xorg xserver-xorg-input-all xserver-xorg-video-all"
@@ -53,7 +53,7 @@ done
 # ------------------------ #
 # Copy configuration files #
 # ------------------------ #
-function copy_configuration_file() {
+function copy_file() {
     SRC="$1"
     DST="$2"
 
@@ -66,10 +66,20 @@ CFG_PICOM_CONF="$HOME/.config/picom.conf"
 CFG_OPENBOX_AUTOSTART="$HOME/.config/openbox/autostart"
 CFG_OPENBOX_RC_XML="$HOME/.config/openbox/rc.xml"
 CFG_ROFI_RASI="$HOME/.config/rofi/config.rasi"
+CFG_TINT2RC="$HOME/.config/tint2/tint2rc"
 
 log_info "Copy configuration files ..."
-copy_configuration_file "$ROOT/configs/picom/picom.conf" "$CFG_PICOM_CONF"
-copy_configuration_file "$ROOT/configs/openbox/autostart" "$CFG_OPENBOX_AUTOSTART"
-copy_configuration_file "$ROOT/configs/openbox/rc.xml" "$CFG_OPENBOX_RC_XML"
-copy_configuration_file "$ROOT/configs/rofi/config.rasi" "$CFG_ROFI_RASI"
+copy_file "$ROOT/configs/picom/picom.conf" "$CFG_PICOM_CONF"
+copy_file "$ROOT/configs/openbox/autostart" "$CFG_OPENBOX_AUTOSTART"
+copy_file "$ROOT/configs/openbox/rc.xml" "$CFG_OPENBOX_RC_XML"
+copy_file "$ROOT/configs/rofi/config.rasi" "$CFG_ROFI_RASI"
+copy_file "$ROOT/configs/tint2/tint2rc" "$CFG_TINT2RC"
 log_success "Configuration files copied"
+
+# --------- #
+# Wallpaper #
+# --------- #
+WALLPAPER_FILE="$HOME/.wallpaper/3840x2160-dark-debian.png"
+
+log_info "Cpoy wallpaper"
+copy_file "$ROOT/configs/3840x2160-dark-debian.png" "$WALLPAPER_FILE"
