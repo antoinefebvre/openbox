@@ -5,27 +5,21 @@ set -e
 # TODO #
 # ---- #
 # - bluetooth (bluez blueman)
-# - compositor (compton)
-
-ROOT="$(realpath "$(dirname "$0")")"
 
 # ----------------- #
 # Logging functions #
 # ----------------- #
-RED='\033[0;31m'
-YELLOW='\033[0;33m'
-BLUE='\033[0;34m'
-GREEN='\033[0;32m'
-NC='\033[0m'
+function log_error()   { echo -e "\033[0;31m[ERROR  ]\033[0m ${1}"; }
+function log_warning() { echo -e "\033[0;33m[WARNING]\033[0m ${1}"; }
+function log_info()    { echo -e "\033[1;34m[INFO   ]\033[0m ${1}"; }
+function log_success() { echo -e "\033[0;32m[SUCCESS]\033[0m ${1}"; }
 
-function log_error()   { echo -e "${RED}[ERROR  ] ${1}${NC}"; }
-function log_warning() { echo -e "${YELLOW}[WARNING] ${1}${NC}"; }
-function log_info()    { echo -e "${BLUE}[INFO   ] ${1}${NC}"; }
-function log_success() { echo -e "${GREEN}[SUCCESS] ${1}${NC}"; }
+# ----- #
+# Setup #
+# ----- #
+ROOT="$(realpath "$(dirname "$0")")"
 
-
-# Avoid running script as root
-if [ "$(id -u)" -eq 0 ]; then
+if [ "$(id -u)" -eq 0 ]; then # Avoid running script as root
     log_error "This script must no be run as root."
     exit 1
 fi
@@ -36,7 +30,7 @@ fi
 PKGS_CLI_TOOLS="zip unzip xarchiver jq"
 PKGS_GUI_TOOLS="tint2 rofi"
 PKGS_NETWORK="network-manager network-manager-gnome"
-PKGS_OPENBOX="lightdm openbox obconf compton python3-xdg"
+PKGS_OPENBOX="lightdm openbox obconf picom python3-xdg"
 PKGS_XORG="xinit xfonts-base xserver-xorg xserver-xorg-input-all xserver-xorg-video-all"
 
 log_info "Installing packages ..."
@@ -59,7 +53,6 @@ done
 # ------------------------ #
 # Copy configuration files #
 # ------------------------ #
-
 function copy_configuration_file() {
     SRC="$1"
     DST="$2"
@@ -69,10 +62,12 @@ function copy_configuration_file() {
     cp -r "$SRC" "$DST"
 }
 
+CFG_PICOM_CONF="$HOME/.config/picom.conf"
 CFG_OPENBOX_AUTOSTART="$HOME/.config/openbox/autostart"
 CFG_OPENBOX_RC_XML="$HOME/.config/openbox/rc.xml"
 
 log_info "Copy configuration files ..."
+copy_configuration_file "$ROOT/configs/picom.conf" "$CFG_PICOM_CONF"
 copy_configuration_file "$ROOT/configs/openbox/autostart" "$CFG_OPENBOX_AUTOSTART"
 copy_configuration_file "$ROOT/configs/openbox/rc.xml" "$CFG_OPENBOX_RC_XML"
 log_success "Configuration files copied"
