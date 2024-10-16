@@ -1,0 +1,3 @@
+#!/bin/sh
+
+xset r rate 250 25 # Set keyboard settings to 250ms delay and 25cps (characters per second)
