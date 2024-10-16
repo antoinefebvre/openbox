@@ -2,6 +2,6 @@
 
 xset r rate 250 25 # Set keyboard settings to 250ms delay and 25cps (characters per second)
 
-feh --bg-scale ~/.wallpaper/wallpaper.json
+feh --bg-scale ~/.wallpaper/3840x2160-dark-debian.png.png
 exec picom &
 exec tint2 &
