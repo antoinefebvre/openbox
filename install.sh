@@ -27,7 +27,7 @@ fi
 # ---------------- #
 # Install packages #
 # ---------------- #
-PKGS_CLI_TOOLS="zip unzip xarchiver jq"
+PKGS_CLI_TOOLS="zip unzip xarchiver jq htop"
 PKGS_GUI_TOOLS="tint2 rofi"
 PKGS_NETWORK="network-manager network-manager-gnome"
 PKGS_OPENBOX="lightdm openbox obconf picom python3-xdg"
@@ -65,9 +65,11 @@ function copy_configuration_file() {
 CFG_PICOM_CONF="$HOME/.config/picom.conf"
 CFG_OPENBOX_AUTOSTART="$HOME/.config/openbox/autostart"
 CFG_OPENBOX_RC_XML="$HOME/.config/openbox/rc.xml"
+CFG_ROFI_RASI="$HOME/.config/rofi/config.rasi"
 
 log_info "Copy configuration files ..."
-copy_configuration_file "$ROOT/configs/picom.conf" "$CFG_PICOM_CONF"
+copy_configuration_file "$ROOT/configs/picom/picom.conf" "$CFG_PICOM_CONF"
 copy_configuration_file "$ROOT/configs/openbox/autostart" "$CFG_OPENBOX_AUTOSTART"
 copy_configuration_file "$ROOT/configs/openbox/rc.xml" "$CFG_OPENBOX_RC_XML"
+copy_configuration_file "$ROOT/configs/rofi/config.rasi" "$CFG_ROFI_RASI"
 log_success "Configuration files copied"

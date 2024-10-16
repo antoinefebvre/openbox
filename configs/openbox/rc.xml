@@ -332,9 +332,9 @@
             <action name="Execute">
                 <startupnotify>
                 <enabled>true</enabled>
-                <name>Konqueror</name>
+                <name>Rofi</name>
                 </startupnotify>
-                <command>kfmclient openProfile filemanagement</command>
+                <command>rofi -modi drun -show drun</command>
             </action>
         </keybind>
         <!-- Launch scrot when Print is pressed -->
