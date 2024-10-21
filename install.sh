@@ -28,7 +28,7 @@ fi
 # Install packages #
 # ---------------- #
 PKGS_CLI_TOOLS="zip unzip xarchiver jq htop feh"
-PKGS_GUI_TOOLS="tint2 rofi kitty"
+PKGS_GUI_TOOLS="tint2 rofi kitty firefox-esr"
 PKGS_NETWORK="network-manager network-manager-gnome"
 PKGS_OPENBOX="lightdm openbox obconf picom python3-xdg"
 PKGS_XORG="xinit xfonts-base xserver-xorg xserver-xorg-input-all xserver-xorg-video-all"
